@@ -42,13 +42,12 @@ function CreateHabit({ onHabitCreated, onClose }) {
     setLoading(true)
 
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch('http://localhost:5000/api/habits', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
         },
+        credentials: 'include',
         body: JSON.stringify(formData)
       })
 

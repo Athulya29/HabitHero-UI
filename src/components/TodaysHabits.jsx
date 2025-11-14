@@ -11,11 +11,8 @@ function TodaysHabits({ refresh }) {
 
   const fetchTodaysHabits = async () => {
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch('http://localhost:5000/api/habits/today', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        credentials: 'include'
       })
 
       const data = await response.json()
@@ -34,13 +31,12 @@ function TodaysHabits({ refresh }) {
 
   const markAsDone = async (habitId) => {
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch('http://localhost:5000/api/habits/mark-done', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
         },
+        credentials: 'include',
         body: JSON.stringify({ habit_id: habitId })
       })
 
@@ -62,12 +58,9 @@ function TodaysHabits({ refresh }) {
     }
 
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch(`http://localhost:5000/api/habits?habit_id=${habitId}`, {
         method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        credentials: 'include'
       })
 
       const data = await response.json()

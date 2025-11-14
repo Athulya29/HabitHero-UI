@@ -10,11 +10,8 @@ function Analytics() {
 
   const fetchAnalytics = async () => {
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch('http://localhost:5000/api/habits/analytics', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        credentials: 'include'
       })
 
       const data = await response.json()

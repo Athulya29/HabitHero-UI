@@ -17,31 +17,23 @@ function App() {
   }, [])
 
   const checkAuthStatus = async () => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      try {
-        const response = await fetch('http://localhost:5000/api/auth/verify', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ token }),
-        })
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/me', {
+        method: 'GET',
+        credentials: 'include'
+      })
 
-        const data = await response.json()
+      const data = await response.json()
 
-        if (data.success && data.valid) {
-          setIsAuthenticated(true)
-          setUser(data.user)
-        } else {
-          localStorage.removeItem('token')
-        }
-      } catch (error) {
-        console.error('Auth check failed:', error)
-        localStorage.removeItem('token')
+      if (data.success) {
+        setIsAuthenticated(true)
+        setUser(data.user)
       }
+    } catch (error) {
+      console.error('Auth check failed:', error)
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const login = async (email, password) => {
@@ -51,6 +43,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({ email, password }),
       })
 
@@ -59,7 +52,6 @@ function App() {
       if (data.success) {
         setIsAuthenticated(true)
         setUser(data.user)
-        localStorage.setItem('token', data.token)
         return { success: true, message: data.message }
       } else {
         return { success: false, error: data.error }
@@ -76,6 +68,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({ name, email, password, confirmPassword }),
       })
 
@@ -84,7 +77,6 @@ function App() {
       if (data.success) {
         setIsAuthenticated(true)
         setUser(data.user)
-        localStorage.setItem('token', data.token)
         return { success: true, message: data.message }
       } else {
         return { success: false, error: data.error }
@@ -94,10 +86,18 @@ function App() {
     }
   }
 
-  const logout = () => {
-    setIsAuthenticated(false)
-    setUser(null)
-    localStorage.removeItem('token')
+  const logout = async () => {
+    try {
+      await fetch('http://localhost:5000/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+      })
+    } catch (error) {
+      console.error('Logout error:', error)
+    } finally {
+      setIsAuthenticated(false)
+      setUser(null)
+    }
   }
 
   if (loading) {

@@ -11,11 +11,8 @@ function MotivationalQuote() {
   const fetchQuote = async () => {
     setLoading(true)
     try {
-      const token = localStorage.getItem('token')
       const response = await fetch('http://localhost:5000/api/habits/motivational-quote', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        credentials: 'include'
       })
 
       const data = await response.json()
