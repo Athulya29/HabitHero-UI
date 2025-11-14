@@ -1,82 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import CreateHabit from './CreateHabit'
+import TodaysHabits from './TodaysHabits'
+import Analytics from './Analytics'
+import MotivationalQuote from './MotivationalQuote'
+import SimpleCalendar from './SimpleCalendar'
 
 function Dashboard({ user }) {
+  const [showCreateHabit, setShowCreateHabit] = useState(false)
+  const [refresh, setRefresh] = useState(0)
+
+  const handleHabitCreated = () => {
+    setRefresh(prev => prev + 1)
+    setShowCreateHabit(false)
+  }
+
   return (
-    <div className="container mt-4">
-      <div className="row justify-content-center">
-        <div className="col-lg-10">
-          <div className="card border-0 shadow rounded-3">
-            <div className="card-body p-4 p-md-5">
-              <div className="text-center mb-5">
-                <h1 className="display-5 fw-bold text-primary mb-3">
-                  Welcome back, {user?.name}! 🎉
-                </h1>
-                <p className="lead text-muted">
-                  Ready to continue your journey towards better habits?
-                </p>
-              </div>
-
-              <div className="row g-4">
-                <div className="col-md-6">
-                  <div className="card border-0 bg-light h-100">
-                    <div className="card-body text-center p-4">
-                      <div className="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
-                           style={{width: '80px', height: '80px'}}>
-                        <i className="bi bi-plus-circle text-white fs-2"></i>
-                      </div>
-                      <h5 className="fw-bold">Create Habits</h5>
-                      <p className="text-muted">Start tracking new habits and build consistent routines</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="col-md-6">
-                  <div className="card border-0 bg-light h-100">
-                    <div className="card-body text-center p-4">
-                      <div className="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
-                           style={{width: '80px', height: '80px'}}>
-                        <i className="bi bi-bar-chart text-white fs-2"></i>
-                      </div>
-                      <h5 className="fw-bold">Track Progress</h5>
-                      <p className="text-muted">Monitor your streaks and see your improvement over time</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 pt-4 border-top">
-                <h4 className="fw-bold mb-4">Your Profile</h4>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="d-flex align-items-center mb-3 p-3 bg-light rounded">
-                      <i className="bi bi-person text-primary me-3 fs-5"></i>
-                      <div>
-                        <small className="text-muted">Name</small>
-                        <div className="fw-semibold">{user?.name}</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="d-flex align-items-center mb-3 p-3 bg-light rounded">
-                      <i className="bi bi-envelope text-primary me-3 fs-5"></i>
-                      <div>
-                        <small className="text-muted">Email</small>
-                        <div className="fw-semibold">{user?.email}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 text-center">
-                <p className="text-muted">
-                  More features coming soon! Stay tuned for habit creation, tracking, and analytics.
-                </p>
-              </div>
+    <div className="container-fluid py-4">
+      <div className="row">
+        {/* Left Sidebar */}
+        <div className="col-lg-3 mb-4">
+          <div className="sticky-top" style={{top: '20px'}}>
+            <Analytics />
+            <div className="mt-4">
+              <SimpleCalendar />
             </div>
           </div>
         </div>
+
+        {/* Main Content */}
+        <div className="col-lg-6 mb-4">
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <h2 className="mb-1">Today's Habits</h2>
+              <p className="text-muted mb-0">
+                {new Date().toLocaleDateString('en-US', { 
+                  weekday: 'long', 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </p>
+            </div>
+            <button 
+              className="btn btn-primary"
+              onClick={() => setShowCreateHabit(true)}
+            >
+              <i className="bi bi-plus-circle me-2"></i>
+              New Habit
+            </button>
+          </div>
+
+          <TodaysHabits refresh={refresh} />
+        </div>
+
+        {/* Right Sidebar */}
+        <div className="col-lg-3 mb-4">
+          <div className="sticky-top" style={{top: '20px'}}>
+            <MotivationalQuote />
+          </div>
+        </div>
       </div>
+
+      {/* Create Habit Modal */}
+      {showCreateHabit && (
+        <CreateHabit 
+          onHabitCreated={handleHabitCreated}
+          onClose={() => setShowCreateHabit(false)}
+        />
+      )}
     </div>
   )
 }
