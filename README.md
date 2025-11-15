@@ -1,4 +1,4 @@
-<img width="1919" height="1079" alt="Screenshot 2025-11-15 201528" src="https://github.com/user-attachments/assets/57edbe50-e611-4729-84dd-2ef5e95d38e3" /><img width="1919" height="1079" alt="Screenshot 2025-11-15 201450" src="https://github.com/user-attachments/assets/9534f40f-b2a9-46dc-8630-9cac0afb7ca2" /># HabitHero - Build Better Habits Every Day 🚀
+ HabitHero - Build Better Habits Every Day 🚀
 
 <div align="center">
 
