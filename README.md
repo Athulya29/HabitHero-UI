@@ -1,4 +1,4 @@
-# HabitHero - Build Better Habits Every Day 🚀
+<img width="1919" height="1079" alt="Screenshot 2025-11-15 201528" src="https://github.com/user-attachments/assets/57edbe50-e611-4729-84dd-2ef5e95d38e3" /><img width="1919" height="1079" alt="Screenshot 2025-11-15 201450" src="https://github.com/user-attachments/assets/9534f40f-b2a9-46dc-8630-9cac0afb7ca2" /># HabitHero - Build Better Habits Every Day 🚀
 
 <div align="center">
 
@@ -19,6 +19,12 @@
 ## 📖 Overview
 
 HabitHero is a full-stack web application designed to help users build and maintain positive habits through consistent tracking, motivational insights, and data-driven analytics. Whether you're starting a fitness routine, learning a new skill, or improving daily productivity, HabitHero provides the tools you need to succeed.
+
+<img width="1910" height="1020" alt="Screenshot 2025-11-15 201416" src="https://github.com/user-attachments/assets/3951c4b7-d996-4ff8-b870-9ddbcab2427f" />
+![Uploading Screens<img width="1919" height="1079" alt="Screenshot 2025-11-15 201507" src="https://github.com/user-attachments/assets/ae911a7d-f7f7-4d2c-90dd-8ecbb6527c63" />
+hot 2025-11-15 201450.png…]()
+!<img width="1919" height="1079" alt="Screenshot 2025-11-15 201546" src="https://github.com/user-attachments/assets/ed03d252-31f7-4a79-9b04-bd887b9f60f6" />
+[Uploading Screenshot 2025-11-15 201528.png…]()
 
 ## ✨ Features
 
