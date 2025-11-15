@@ -154,13 +154,15 @@ habithero/
     ├── public/             # Static assets
     ├── src/
     │   ├── components/     # React components
-    │   │   ├── Auth/
-    │   │   ├── Dashboard/
-    │   │   ├── Habits/
-    │   │   └── Analytics/
-    │   ├── App.js          # Main app component
+    │   │   ├── AddHabit.jsx
+    │   │   ├── Analytics.jsx
+    │   │   ├── Dashboard.jsx
+    │   │   ├── Login.jsx
+    │   │   ├── Register.jsx
+    │   │   └── TodaysHabits.jsx
+    │   ├── App.jsx         # Main app component
     │   ├── App.css         # Global styles
-    │   └── index.js        # React entry point
+    │   └── main.jsx        # React entry point
     ├── package.json        # Node dependencies
     └── README.md
 ```
@@ -230,10 +232,43 @@ The application is fully responsive and works seamlessly on mobile devices, allo
 
 We welcome contributions from the community! Here's how you can help:
 
+### Development Setup
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and test thoroughly
+4. Commit your changes: `git commit -m 'Add amazing feature'`
+5. Push to the branch: `git push origin feature/amazing-feature`
+6. Open a Pull Request
+
+### Contribution Guidelines
+- Follow the existing code style
+- Add comments for complex logic
+- Update documentation as needed
+- Test your changes across different devices
+- Ensure all endpoints return appropriate status codes
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Backend won't start:**
+- Ensure virtual environment is activated
+- Check if port 5000 is available
+- Verify all dependencies are installed
+
+**Frontend connection issues:**
+- Confirm backend is running on port 5000
+- Check CORS configuration
+- Verify API endpoints are correct
+
+**Database problems:**
+- Delete instance folder to reset database
+- Check SQLite file permissions
+- Verify database models are properly defined
 
 <div align="center">
 
-
+### ⭐ **If you find this project helpful, don't forget to give it a star!**
 
 **Build better habits, build a better you with HabitHero** 🌟
 
