@@ -14,9 +14,7 @@ function MotivationalQuote() {
       const response = await fetch('http://localhost:5000/api/habits/motivational-quote', {
         credentials: 'include'
       })
-
       const data = await response.json()
-
       if (data.success) {
         setQuote(data)
       }
@@ -30,7 +28,7 @@ function MotivationalQuote() {
   if (loading) {
     return (
       <div className="card">
-        <div className="card-body text-center py-4">
+        <div className="card-body text-center py-3">
           <div className="spinner-border spinner-border-sm text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
@@ -39,32 +37,29 @@ function MotivationalQuote() {
     )
   }
 
-  if (!quote) {
-    return null
-  }
+  if (!quote) return null
 
   return (
-    <div className="card bg-light border-0">
+    <div className="card quote-card">
       <div className="card-body">
-        <h6 className="card-title mb-3">
-          <i className="bi bi-stars text-warning me-2"></i>
-          Daily Motivation
-        </h6>
-        <blockquote className="mb-3">
-          <p className="fst-italic">"{quote.quote}"</p>
-        </blockquote>
-        <div className="d-flex justify-content-between align-items-center">
-          <small className="text-muted">— {quote.author}</small>
-          <button 
-            className="btn btn-sm btn-outline-primary"
-            onClick={fetchQuote}
-            disabled={loading}
-          >
-            <i className="bi bi-arrow-clockwise"></i>
-          </button>
-        </div>
-        <div className="mt-2">
-          <small className="badge bg-secondary">{quote.category}</small>
+        <div className="row align-items-center">
+          <div className="col-md-10">
+            <blockquote className="mb-0">
+              <p className="fst-italic mb-1">"{quote.quote}"</p>
+              <footer className="blockquote-footer mt-1">
+                {quote.author} • <cite title="Source Title">{quote.category}</cite>
+              </footer>
+            </blockquote>
+          </div>
+          <div className="col-md-2 text-end">
+            <button 
+              className="btn btn-sm btn-outline-primary"
+              onClick={fetchQuote}
+              disabled={loading}
+            >
+              <i className="bi bi-arrow-clockwise"></i> New Quote
+            </button>
+          </div>
         </div>
       </div>
     </div>

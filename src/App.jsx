@@ -3,14 +3,19 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
+import AddHabit from './components/AddHabit'
+import TotalHabits from './components/TotalHabits'
+import Analytics from './components/Analytics'
 import Home from './components/Home'
 import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 import './App.css'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [currentPage, setCurrentPage] = useState('dashboard')
 
   useEffect(() => {
     checkAuthStatus()
@@ -100,6 +105,10 @@ function App() {
     }
   }
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+  }
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
@@ -115,33 +124,30 @@ function App() {
 
   return (
     <div className="App">
-      {isAuthenticated && <Navbar user={user} onLogout={logout} />}
-      <Routes>
-        <Route 
-          path="/" 
-          element={
-            isAuthenticated ? <Navigate to="/dashboard" /> : <Home />
-          } 
-        />
-        <Route 
-          path="/login" 
-          element={
-            isAuthenticated ? <Navigate to="/dashboard" /> : <Login onLogin={login} />
-          } 
-        />
-        <Route 
-          path="/register" 
-          element={
-            isAuthenticated ? <Navigate to="/dashboard" /> : <Register onRegister={register} />
-          } 
-        />
-        <Route 
-          path="/dashboard" 
-          element={
-            isAuthenticated ? <Dashboard user={user} /> : <Navigate to="/login" />
-          } 
-        />
-      </Routes>
+      {isAuthenticated ? (
+        <div className="d-flex">
+          <Sidebar currentPage={currentPage} onPageChange={handlePageChange} />
+          <div className="flex-grow-1">
+            <Navbar user={user} onLogout={logout} />
+            <div className="main-content">
+              <Routes>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/add-habit" element={<AddHabit />} />
+                <Route path="/total-habits" element={<TotalHabits />} />
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="*" element={<Navigate to="/dashboard" />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login onLogin={login} />} />
+          <Route path="/register" element={<Register onRegister={register} />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      )}
     </div>
   )
 }
