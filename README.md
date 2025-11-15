@@ -268,7 +268,6 @@ We welcome contributions from the community! Here's how you can help:
 
 <div align="center">
 
-### ⭐ **If you find this project helpful, don't forget to give it a star!**
 
 **Build better habits, build a better you with HabitHero** 🌟
 
