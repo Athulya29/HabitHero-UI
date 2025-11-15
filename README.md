@@ -248,11 +248,6 @@ We welcome contributions from the community! Here's how you can help:
 - Test your changes across different devices
 - Ensure all endpoints return appropriate status codes
 
-<img width="1910" height="1020" alt="Screenshot 2025-11-15 201416" src="https://github.com/user-attachments/assets/3951c4b7-d996-4ff8-b870-9ddbcab2427f" />
-![Uploading Screens<img width="1919" height="1079" alt="Screenshot 2025-11-15 201507" src="https://github.com/user-attachments/assets/ae911a7d-f7f7-4d2c-90dd-8ecbb6527c63" />
-hot 2025-11-15 201450.png…]()
-!<img width="1919" height="1079" alt="Screenshot 2025-11-15 201546" src="https://github.com/user-attachments/assets/ed03d252-31f7-4a79-9b04-bd887b9f60f6" />
-[Uploading Screenshot 2025-11-15 201528.png…]()
 
 
 **Build better habits, build a better you with HabitHero** 🌟
