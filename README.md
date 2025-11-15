@@ -247,8 +247,13 @@ We welcome contributions from the community! Here's how you can help:
 - Update documentation as needed
 - Test your changes across different devices
 - Ensure all endpoints return appropriate status codes
+<img width="1910" height="1020" alt="Screenshot 2025-11-15 201416" src="https://github.com/user-attachments/assets/5dabaf14-6b7d-4002-ac8d-c290984978df" />
 
+<img width="1919" height="1079" alt="Screenshot 2025-11-15 201450" src="https://github.com/user-attachments/assets/7637b0bc-ef25-4100-9340-dfda990bc11f" />
+<img width="1919" height="1079" alt="Screenshot 2025-11-15 201507" src="https://github.com/user-attachments/assets/89b47ce7-469f-4229-a15c-480359b4faa3" />
+<img width="1919" height="1079" alt="Screenshot 2025-11-15 201528" src="https://github.com/user-attachments/assets/92658e20-1f17-461b-9445-4de860dea6a6" />
 
+<img width="1919" height="1079" alt="Screenshot 2025-11-15 201546" src="https://github.com/user-attachments/assets/fc450a5d-b14f-4eed-b052-60a1ff5b5587" />
 
 **Build better habits, build a better you with HabitHero** 🌟
 
