@@ -1,37 +1,80 @@
 /* Sidebar Styles */
+/* Sidebar fixed below navbar */
 .sidebar {
-  width: 250px;
+  width: 280px;
   min-height: 100vh;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 70px; /* navbar height */
   z-index: 100;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+
+.sidebar-logo {
+  transition: transform 0.3s ease;
+}
+
+.sidebar-logo:hover {
+  transform: scale(1.1);
 }
 
 .main-content {
-  margin-left: 250px;
+  margin-top:12px;
+  margin-left: 290px;
   min-height: 100vh;
-  background-color: #f8f9fa;
-  padding: 20px;
+  background-color: #ffffff;
 }
 
+/* Navbar Styles */
+.navbar {
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+
+
+  /* Remove this — it breaks layout */
+  /* padding-left: 300px; */
+}
+
+
+
+
+.user-greeting h5 {
+  font-size: 1.25rem;
+}
+
+.user-greeting p {
+  font-size: 0.875rem;
+}
+
+/* Sidebar Navigation */
 .sidebar-nav .nav-link {
   border-radius: 8px;
   padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
   color: #4a5568;
   transition: all 0.3s ease;
+  border: none;
+  font-size: 0.95rem;
 }
 
 .sidebar-nav .nav-link:hover {
   background-color: #e2e8f0;
-  color: #2d3748;
+  color: #424346;
+  transform: translateX(5px);
 }
 
 .sidebar-nav .nav-link.active {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* Circular Progress */
@@ -53,41 +96,43 @@
   border: none;
   border-radius: 12px;
   transition: all 0.3s ease;
+  background: white;
 }
 
 .analytics-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 /* Dashboard Layout */
 .dashboard-container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Card Headers with Date */
+.card-header {
+  border-radius: 12px 12px 0 0 !important;
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+}
+
+.card-header h6 {
+  margin-bottom: 0.25rem;
+}
+
+.card-header .date-display {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-weight: 400;
 }
 
 /* Quote Card */
 .quote-card {
   background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
   border-left: 4px solid #667eea;
-}
-
-/* Add Habit Page */
-.add-habit-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Total Habits */
-.total-habits-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Analytics Page */
-.analytics-container {
-  max-width: 1400px;
-  margin: 0 auto;
+  border-radius: 12px;
 }
 
 /* Responsive */
@@ -96,69 +141,113 @@
     width: 100%;
     position: relative;
     min-height: auto;
+    z-index: 1000;
   }
   
   .main-content {
     margin-left: 0;
   }
   
-  .add-habit-container,
-  .total-habits-container,
-  .analytics-container {
-    padding: 0 15px;
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .card-header {
+    padding: 0.75rem 1rem;
   }
 }
 
-/* Form Styles */
-.form-control-lg {
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease;
 }
 
-.form-control-lg:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+/* Custom shadows */
+.shadow-sm {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
 }
 
-/* Button Styles */
-.btn-lg {
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+/* Border utilities */
+.border-end {
+  border-right: 1px solid #e9ecef !important;
 }
 
-/* Card Header Styles */
-.card-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  color: white;
-  font-weight: 600;
+.border-bottom {
+  border-bottom: 1px solid #e9ecef !important;
 }
 
-/* List Group Styles */
+/* Card body styles */
+.card-body {
+  padding: 0;
+}
+
+/* List group styles for habit lists */
 .list-group-item {
   border: none;
-  border-bottom: 1px solid #f1f3f4;
-  padding: 1.25rem;
+  border-bottom: 1px solid #f8f9fa;
+  padding: 1rem 1.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
 }
 
 .list-group-item:last-child {
   border-bottom: none;
 }
 
-/* Badge Styles */
+/* Badge styles */
 .badge {
   font-size: 0.75rem;
   padding: 0.4em 0.7em;
   border-radius: 6px;
+  font-weight: 500;
 }
 
-/* Progress Bar */
-.progress {
-  border-radius: 10px;
-  background-color: #e9ecef;
+/* Button styles in habit cards */
+.btn-sm {
+  border-radius: 6px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
-.progress-bar {
-  border-radius: 10px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Empty state styles */
+.empty-state {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+.empty-state i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Success popup styles */
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Overlay for popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1040;
 }

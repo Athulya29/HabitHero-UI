@@ -17,23 +17,17 @@ function Sidebar({ currentPage, onPageChange }) {
   }
 
   return (
-    <div className="sidebar bg-white shadow-sm">
-      <div className="sidebar-header p-3 border-bottom">
-        <h5 className="mb-0 text-primary">
-          <i className="bi bi-star-fill me-2"></i>
-          HabitHero
-        </h5>
-      </div>
+    <div className="sidebar bg-white border-end">
       <nav className="sidebar-nav p-3">
         <ul className="nav nav-pills flex-column">
           {menuItems.map(item => (
             <li key={item.id} className="nav-item mb-2">
               <button
-                className={`nav-link w-100 text-start ${currentPage === item.id ? 'active' : ''}`}
+                className={`nav-link w-100 text-start d-flex align-items-center ${currentPage === item.id ? 'active' : ''}`}
                 onClick={() => handleMenuClick(item)}
               >
-                <i className={`${item.icon} me-2`}></i>
-                {item.label}
+                <i className={`${item.icon} me-3`}></i>
+                <span className="fw-medium">{item.label}</span>
               </button>
             </li>
           ))}

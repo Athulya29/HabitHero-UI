@@ -20,7 +20,7 @@ function SuccessPopup({ data, onClose }) {
             <h4 className="text-success mb-3">Well Done! 🎉</h4>
             <p className="fs-5 mb-2">You completed <strong>{data.habitName}</strong></p>
             <p className="text-muted mb-3">
-              Current streak: <strong className="text-success">{data.streak} days</strong>
+              Current streak: <strong className="text-success">{data.streak+1} days</strong>
             </p>
             <p className="fw-bold text-primary">Keep going! You're doing amazing! 💪</p>
           </div>

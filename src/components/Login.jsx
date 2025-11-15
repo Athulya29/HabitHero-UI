@@ -52,7 +52,7 @@ function Login({ onLogin }) {
                      style={{width: '60px', height: '60px'}}>
                   <i className="bi bi-person-check text-white fs-4"></i>
                 </div>
-                <h2 className="card-title text-primary fw-bold mb-2">Welcome Back</h2>
+                <h2 className="card-title text-primary fw-bold mb-2">Welcome</h2>
                 <p className="text-muted">Sign in to continue your journey</p>
               </div>
 

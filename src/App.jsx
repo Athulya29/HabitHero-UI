@@ -21,25 +21,31 @@ function App() {
     checkAuthStatus()
   }, [])
 
-  const checkAuthStatus = async () => {
-    try {
-      const response = await fetch('http://localhost:5000/api/auth/me', {
-        method: 'GET',
-        credentials: 'include'
-      })
+ const checkAuthStatus = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/api/auth/me", {
+      method: "GET",
+      credentials: "include",
+    });
 
-      const data = await response.json()
+    const data = await response.json();
 
-      if (data.success) {
-        setIsAuthenticated(true)
-        setUser(data.user)
-      }
-    } catch (error) {
-      console.error('Auth check failed:', error)
-    } finally {
-      setLoading(false)
+    if (data.success) {
+      setIsAuthenticated(true);
+      setUser(data.user);
+    } else {
+      setIsAuthenticated(false);
+      setUser(null);
     }
+  } catch (error) {
+    console.error("Auth check failed:", error);
+    setIsAuthenticated(false);
+    setUser(null);
+  } finally {
+    setLoading(false);
   }
+};
+
 
   const login = async (email, password) => {
     try {
